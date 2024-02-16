@@ -10,14 +10,14 @@
         <h2 class="text-2xl font-bold mb-4">Hi {{ user.username }}!</h2>
         <form action="{% url 'logout' %}" method="post" class="mb-4">
           {% csrf_token %}
-          <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Log Out</button>
+          <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded transition duration-300 ease-in-out transform hover:bg-red-600 hover:scale-105 active:scale-95">Log Out</button>
         </form>
       {% else %}
         <p class="text-lg">You are not logged in</p>
         <div class="flex space-x-4">
-          <a href="{% url 'login' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Log In</a>
+          <a href="{% url 'login' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">Log In</a>
           <span class="text-gray-500">|</span>
-          <a href="{% url 'signup' %}" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up</a>
+          <a href="{% url 'signup' %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">Sign Up</a>
         </div>
       {% endif %}
     </div>
