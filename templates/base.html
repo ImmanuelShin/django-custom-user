@@ -1,0 +1,66 @@
+{% load compress %}
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+    {% compress css %}
+        <link rel="stylesheet" href="{% static 'src/output.css' %}">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .dark-mode {
+                background-color: #1a202c;
+                color: #ffffff;
+            }
+
+            .toggle-button {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                background-color: #4a5568;
+                color: #ffffff; 
+                padding: 4px 8px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input {
+                color: #000000; 
+            }
+        </style>
+    {% endcompress %}
+</head>
+<body>
+    <main class="p-8">
+        <div class="dark-overlay" id="darkOverlay"></div>
+        {% block content %}
+        {% endblock %}
+        <button onclick="toggleDarkMode()" class="toggle-button">Unpersistant Toggle</button>
+    </main>
+
+    <script>
+      function toggleDarkMode() {
+          const body = document.body;
+          const isDarkMode = body.classList.contains('dark-mode');
+  
+          if (isDarkMode) {
+              body.classList.remove('dark-mode');
+          } else {
+              body.classList.add('dark-mode');
+          }
+      }
+    </script>
+  
+</body>
+</html>
